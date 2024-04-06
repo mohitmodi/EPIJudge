@@ -1,8 +1,8 @@
 
 package epi_solutions.test_framework;
 
-import epi.test_framework.TestUtils;
-import epi.test_framework.TriBool;
+import epi_solutions.test_framework.TestUtils;
+import epi_solutions.test_framework.TriBool;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -30,12 +30,12 @@ public class TestConfig {
    * If TRUE, enable advanced output (mainly usage of \r)
    * If INDETERMINATE, try to autodetect if output is console
    */
-  public epi.test_framework.TriBool ttyMode;
+  public epi_solutions.test_framework.TriBool ttyMode;
   /**
    * If TRUE, enable colored output
    * If INDETERMINATE, try to autodetect if output is console
    */
-  public epi.test_framework.TriBool colorMode;
+  public epi_solutions.test_framework.TriBool colorMode;
   /**
    * If True, update problem_mapping.js
    */
@@ -75,8 +75,8 @@ public class TestConfig {
                     int numFailedTestsBeforeStop) {
     this.testFile = testFile;
     this.testDataFile = testDataFile;
-    this.ttyMode = epi.test_framework.TriBool.INDETERMINATE;
-    this.colorMode = epi.test_framework.TriBool.INDETERMINATE;
+    this.ttyMode = epi_solutions.test_framework.TriBool.INDETERMINATE;
+    this.colorMode = epi_solutions.test_framework.TriBool.INDETERMINATE;
     this.updateJs = true;
     this.timeoutSeconds = timeoutSeconds;
     this.numFailedTestsBeforeStop = numFailedTestsBeforeStop;
@@ -134,13 +134,13 @@ public class TestConfig {
         config.testDataDir = getParam(commandlineArgs, ++i, "--test-data-dir");
         break;
       case "--force-tty":
-        config.ttyMode = epi.test_framework.TriBool.TRUE;
+        config.ttyMode = epi_solutions.test_framework.TriBool.TRUE;
         break;
       case "--no-tty":
-        config.ttyMode = epi.test_framework.TriBool.FALSE;
+        config.ttyMode = epi_solutions.test_framework.TriBool.FALSE;
         break;
       case "--force-color":
-        config.colorMode = epi.test_framework.TriBool.TRUE;
+        config.colorMode = epi_solutions.test_framework.TriBool.TRUE;
         break;
       case "--no-color":
         config.colorMode = TriBool.FALSE;

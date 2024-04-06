@@ -1,5 +1,5 @@
 
-package epi.test_framework;
+package test_framework;
 
 public class ConsoleColor {
   public enum Color { FG_RED, FG_GREEN, FG_BLUE, FG_YELLOW, FG_DEFAULT }

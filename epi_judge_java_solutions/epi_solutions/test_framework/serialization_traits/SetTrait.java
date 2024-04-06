@@ -1,19 +1,19 @@
 
 package epi_solutions.test_framework.serialization_traits;
 
-import epi.test_framework.minimal_json.JsonValue;
-import epi.test_framework.serialization_traits.ListTrait;
-import epi.test_framework.serialization_traits.SerializationTrait;
+import epi_solutions.test_framework.minimal_json.JsonValue;
+import epi_solutions.test_framework.serialization_traits.ListTrait;
+import epi_solutions.test_framework.serialization_traits.SerializationTrait;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetTrait extends epi.test_framework.serialization_traits.SerializationTrait {
-  private epi.test_framework.serialization_traits.ListTrait listTrait;
+public class SetTrait extends epi_solutions.test_framework.serialization_traits.SerializationTrait {
+  private epi_solutions.test_framework.serialization_traits.ListTrait listTrait;
 
-  public SetTrait(epi.test_framework.serialization_traits.SerializationTrait innerTypeTrait) {
+  public SetTrait(epi_solutions.test_framework.serialization_traits.SerializationTrait innerTypeTrait) {
     listTrait = new ListTrait(innerTypeTrait);
   }
 

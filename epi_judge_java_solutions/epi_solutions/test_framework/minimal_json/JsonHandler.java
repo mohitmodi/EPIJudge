@@ -1,11 +1,11 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.JsonParser;
+import epi_solutions.test_framework.minimal_json.JsonParser;
 
 /**
  * A handler for parser events. Instances of this class can be given to a {@link
- * epi.test_framework.minimal_json.JsonParser}. The
+ * epi_solutions.test_framework.minimal_json.JsonParser}. The
  * parser will then call the methods of the given handler while reading the
  * input.
  * <p>
@@ -42,7 +42,7 @@ import epi.test_framework.minimal_json.JsonParser;
  *          The type of handlers used for JSON arrays
  * @param <O>
  *          The type of handlers used for JSON objects
- * @see epi.test_framework.minimal_json.JsonParser
+ * @see epi_solutions.test_framework.minimal_json.JsonParser
  */
 abstract class JsonHandler<A, O> {
   JsonParser parser;

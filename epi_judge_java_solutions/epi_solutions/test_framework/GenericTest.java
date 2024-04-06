@@ -1,17 +1,17 @@
 
 package epi_solutions.test_framework;
 
-import epi.test_framework.EpiTest;
-import epi.test_framework.EpiTestComparator;
-import epi.test_framework.EpiTestExpectedType;
-import epi.test_framework.GenericTestHandler;
-import epi.test_framework.Platform;
-import epi.test_framework.TestFailure;
-import epi.test_framework.TestOutput;
-import epi.test_framework.TestResult;
-import epi.test_framework.TestUtils;
-import epi.test_framework.TestUtilsConsole;
-import epi.test_framework.TimeoutException;
+import epi_solutions.test_framework.EpiTest;
+import epi_solutions.test_framework.EpiTestComparator;
+import epi_solutions.test_framework.EpiTestExpectedType;
+import epi_solutions.test_framework.GenericTestHandler;
+import epi_solutions.test_framework.Platform;
+import epi_solutions.test_framework.TestFailure;
+import epi_solutions.test_framework.TestOutput;
+import epi_solutions.test_framework.TestResult;
+import epi_solutions.test_framework.TestUtils;
+import epi_solutions.test_framework.TestUtilsConsole;
+import epi_solutions.test_framework.TimeoutException;
 import epi_solutions.test_framework.minimal_json.*;
 
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class GenericTest {
    *                          the 2nd is the computed result
    * @param expectedType    - optional custom expected value type if it doesn't
    */
-  private static epi.test_framework.TestResult
+  private static epi_solutions.test_framework.TestResult
   genericTestMain(String[] commandlineArgs, String testFile,
                   String testDataFile, Method testFunc,
                   BiPredicate<Object, Object> comparator, Field expectedType,
@@ -51,7 +51,7 @@ public class GenericTest {
     try {
       configOverride =
           epi_solutions.test_framework.minimal_json.Json.parse(new String(Files.readAllBytes(Paths.get(
-                         epi.test_framework.TestUtils.getFilePathInJudgeDir("config.json")))))
+                         epi_solutions.test_framework.TestUtils.getFilePathInJudgeDir("config.json")))))
               .asObject();
     } catch (IOException e) {
       throw new RuntimeException("config.json file not found");
@@ -69,20 +69,20 @@ public class GenericTest {
 
       Platform.setOutputOpts(config.ttyMode, config.colorMode);
 
-      epi.test_framework.GenericTestHandler testHandler =
-          new epi.test_framework.GenericTestHandler(testFunc, comparator, expectedType);
+      epi_solutions.test_framework.GenericTestHandler testHandler =
+          new epi_solutions.test_framework.GenericTestHandler(testFunc, comparator, expectedType);
       return runTests(testHandler, config);
     } catch (RuntimeException e) {
       System.err.printf("\nCritical error(%s): %s\n", e.getClass().getName(),
                         e.getMessage());
       e.printStackTrace();
-      return epi.test_framework.TestResult.RUNTIME_EXCEPTION;
+      return epi_solutions.test_framework.TestResult.RUNTIME_EXCEPTION;
     }
   }
 
-  private static epi.test_framework.TestResult runTests(GenericTestHandler handler,
+  private static epi_solutions.test_framework.TestResult runTests(GenericTestHandler handler,
                                                         TestConfig config) {
-    List<List<String>> testData = epi.test_framework.TestUtils.splitTsvFile(
+    List<List<String>> testData = epi_solutions.test_framework.TestUtils.splitTsvFile(
         Paths.get(config.testDataDir, config.testDataFile));
     handler.parseSignature(testData.get(0));
 
@@ -94,7 +94,7 @@ public class GenericTest {
     final int totalTests = testData.size() - 1;
     List<List<Integer>> metrics = new ArrayList<>();
     List<Long> durations = new ArrayList<>();
-    epi.test_framework.TestResult result = epi.test_framework.TestResult.FAILED;
+    epi_solutions.test_framework.TestResult result = epi_solutions.test_framework.TestResult.FAILED;
 
     for (List<String> testCase : testData.subList(1, testData.size())) {
       testNr++;
@@ -104,39 +104,39 @@ public class GenericTest {
       final String testExplanation = testCase.get(testCase.size() - 1);
       testCase = testCase.subList(0, testCase.size() - 1);
 
-      epi.test_framework.TestOutput testOutput = new TestOutput(null, null);
-      epi.test_framework.TestFailure testFailure = new epi.test_framework.TestFailure();
+      epi_solutions.test_framework.TestOutput testOutput = new TestOutput(null, null);
+      epi_solutions.test_framework.TestFailure testFailure = new epi_solutions.test_framework.TestFailure();
 
       try {
         testOutput = handler.runTest(config.timeoutSeconds,
                                      config.metricsOverride, testCase);
-        result = epi.test_framework.TestResult.PASSED;
+        result = epi_solutions.test_framework.TestResult.PASSED;
         testsPassed++;
         metrics.add(testOutput.metrics);
         durations.add(testOutput.timer.getMicroseconds());
-      } catch (epi.test_framework.TestFailure e) {
-        result = epi.test_framework.TestResult.FAILED;
+      } catch (epi_solutions.test_framework.TestFailure e) {
+        result = epi_solutions.test_framework.TestResult.FAILED;
         testFailure = e;
       } catch (TimeoutException e) {
-        result = epi.test_framework.TestResult.TIMEOUT;
+        result = epi_solutions.test_framework.TestResult.TIMEOUT;
         testOutput.timer = e.getTimer();
       } catch (StackOverflowError e) {
-        result = epi.test_framework.TestResult.STACK_OVERFLOW;
+        result = epi_solutions.test_framework.TestResult.STACK_OVERFLOW;
       } catch (RuntimeException | Error e) {
         throw e;
       } catch (Exception e) {
-        result = epi.test_framework.TestResult.UNKNOWN_EXCEPTION;
+        result = epi_solutions.test_framework.TestResult.UNKNOWN_EXCEPTION;
         testFailure =
-            new epi.test_framework.TestFailure(e.getClass().getName())
-                .withProperty(epi.test_framework.TestFailure.PropertyName.EXCEPTION_MESSAGE,
+            new epi_solutions.test_framework.TestFailure(e.getClass().getName())
+                .withProperty(epi_solutions.test_framework.TestFailure.PropertyName.EXCEPTION_MESSAGE,
                               e.getMessage());
       }
 
-      epi.test_framework.TestUtilsConsole.printTestInfo(result, testNr, totalTests,
+      epi_solutions.test_framework.TestUtilsConsole.printTestInfo(result, testNr, totalTests,
                                      testFailure.getDescription(),
                                      testOutput.timer);
 
-      if (result != epi.test_framework.TestResult.PASSED) {
+      if (result != epi_solutions.test_framework.TestResult.PASSED) {
         if (!handler.expectedIsVoid()) {
           testCase = testCase.subList(0, testCase.size() - 1);
         }
@@ -145,7 +145,7 @@ public class GenericTest {
                                    testExplanation);
         }
 
-        epi.test_framework.TestUtilsConsole.printFailedTest(handler.paramNames(), testCase,
+        epi_solutions.test_framework.TestUtilsConsole.printFailedTest(handler.paramNames(), testCase,
                                          testFailure);
 
         final int testsNotPassed = testNr - testsPassed;
@@ -165,7 +165,7 @@ public class GenericTest {
       String complexity = "";
       if (!metricNames.isEmpty() && !metrics.isEmpty() &&
           config.analyzeComplexity) {
-        epi.test_framework.TestUtilsConsole.showComplexityNotification();
+        epi_solutions.test_framework.TestUtilsConsole.showComplexityNotification();
       }
 
       TestUtilsConsole.printPostRunStats(testsPassed, totalTests, complexity,
@@ -217,10 +217,10 @@ public class GenericTest {
    * This method prepares arguments for
    * {@link #genericTestMain(String[], String, String, Method, BiPredicate,
    * Field, Consumer)} method and consequently invokes it for each * method in
-   * the class, marked with {@link epi.test_framework.EpiTest} annotation. It scans the * provided
-   * class for custom result comparator (marked with {@link epi.test_framework.EpiTestComparator}
+   * the class, marked with {@link epi_solutions.test_framework.EpiTest} annotation. It scans the * provided
+   * class for custom result comparator (marked with {@link epi_solutions.test_framework.EpiTestComparator}
    * annotation) and for custom expected value type (marked with {@link
-   * epi.test_framework.EpiTestExpectedType} annotation)
+   * epi_solutions.test_framework.EpiTestExpectedType} annotation)
    */
   @SuppressWarnings("unchecked")
   public static TestResult runFromAnnotations(String[] commandlineArgs,
@@ -232,7 +232,7 @@ public class GenericTest {
     Consumer<TestConfig> programConfig =
         findProgramConfigByAnnotation(testClass);
 
-    Method testFunc = findMethodWithAnnotation(testClass, epi.test_framework.EpiTest.class);
+    Method testFunc = findMethodWithAnnotation(testClass, epi_solutions.test_framework.EpiTest.class);
     if (testFunc == null) {
       throw new RuntimeException("Missing method with EpiTest annotation");
     }

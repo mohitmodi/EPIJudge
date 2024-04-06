@@ -1,16 +1,12 @@
 
-package epi.test_framework;
+package test_framework;
 
 import epi.TreeLike;
-import epi.test_framework.minimal_json.Json;
-import epi.test_framework.serialization_traits.SerializationTrait;
-import epi.test_framework.serialization_traits.TraitsFactory;
+import test_framework.minimal_json.Json;
+import test_framework.serialization_traits.SerializationTrait;
+import test_framework.serialization_traits.TraitsFactory;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

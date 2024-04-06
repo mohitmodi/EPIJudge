@@ -1,6 +1,6 @@
 package epi_solutions;
 
-import epi.DoTerminatedListsOverlap;
+import epi_solutions.DoTerminatedListsOverlap;
 import epi_solutions.test_framework.EpiTest;
 import epi_solutions.test_framework.GenericTest;
 import epi_solutions.test_framework.TestFailure;

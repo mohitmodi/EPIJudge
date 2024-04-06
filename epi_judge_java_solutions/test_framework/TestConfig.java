@@ -1,5 +1,5 @@
 
-package epi.test_framework;
+package test_framework;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

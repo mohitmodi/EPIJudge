@@ -53,8 +53,8 @@ public class DescendantAndAncestorInBst {
 
   @EpiTest(testDataFile = "descendant_and_ancestor_in_bst.tsv")
   public static boolean pairIncludesAncestorAndDescendantOfMWrapper(
-          TimedExecutor executor, BstNode<Integer> tree, int possibleAncOrDesc0,
-          int possibleAncOrDesc1, int middle) throws Exception {
+          TimedExecutor executor, BstNode<Integer> tree, Integer possibleAncOrDesc0,
+          Integer possibleAncOrDesc1, Integer middle) throws Exception {
     final BstNode<Integer> candidate0 =
         epi_solutions.test_framework.BinaryTreeUtils.mustFindNode(tree, possibleAncOrDesc0);
     final BstNode<Integer> candidate1 =

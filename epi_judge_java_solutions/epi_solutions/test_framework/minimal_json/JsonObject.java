@@ -1,7 +1,7 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.JsonWriter;
+import epi_solutions.test_framework.minimal_json.JsonWriter;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

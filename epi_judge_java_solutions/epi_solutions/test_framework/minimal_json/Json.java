@@ -1,12 +1,12 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.JsonHandler;
-import epi.test_framework.minimal_json.JsonObject;
-import epi.test_framework.minimal_json.JsonParser;
-import epi.test_framework.minimal_json.JsonString;
-import epi.test_framework.minimal_json.JsonValue;
-import epi.test_framework.minimal_json.ParseException;
+import epi_solutions.test_framework.minimal_json.JsonHandler;
+import epi_solutions.test_framework.minimal_json.JsonObject;
+import epi_solutions.test_framework.minimal_json.JsonParser;
+import epi_solutions.test_framework.minimal_json.JsonString;
+import epi_solutions.test_framework.minimal_json.JsonValue;
+import epi_solutions.test_framework.minimal_json.ParseException;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -49,17 +49,17 @@ public final class Json {
   /**
    * Represents the JSON literal <code>null</code>.
    */
-  public static final epi.test_framework.minimal_json.JsonValue NULL = new JsonLiteral("null");
+  public static final epi_solutions.test_framework.minimal_json.JsonValue NULL = new JsonLiteral("null");
 
   /**
    * Represents the JSON literal <code>true</code>.
    */
-  public static final epi.test_framework.minimal_json.JsonValue TRUE = new JsonLiteral("true");
+  public static final epi_solutions.test_framework.minimal_json.JsonValue TRUE = new JsonLiteral("true");
 
   /**
    * Represents the JSON literal <code>false</code>.
    */
-  public static final epi.test_framework.minimal_json.JsonValue FALSE = new JsonLiteral("false");
+  public static final epi_solutions.test_framework.minimal_json.JsonValue FALSE = new JsonLiteral("false");
 
   /**
    * Returns a JsonValue instance that represents the given <code>int</code>
@@ -69,7 +69,7 @@ public final class Json {
    *          the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
-  public static epi.test_framework.minimal_json.JsonValue value(int value) {
+  public static epi_solutions.test_framework.minimal_json.JsonValue value(int value) {
     return new JsonNumber(Integer.toString(value, 10));
   }
 
@@ -81,7 +81,7 @@ public final class Json {
    *          the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
-  public static epi.test_framework.minimal_json.JsonValue value(long value) {
+  public static epi_solutions.test_framework.minimal_json.JsonValue value(long value) {
     return new JsonNumber(Long.toString(value, 10));
   }
 
@@ -93,7 +93,7 @@ public final class Json {
    *          the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
-  public static epi.test_framework.minimal_json.JsonValue value(float value) {
+  public static epi_solutions.test_framework.minimal_json.JsonValue value(float value) {
     if (Float.isInfinite(value) || Float.isNaN(value)) {
       throw new IllegalArgumentException(
           "Infinite and NaN values not permitted in JSON");
@@ -109,7 +109,7 @@ public final class Json {
    *          the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
-  public static epi.test_framework.minimal_json.JsonValue value(double value) {
+  public static epi_solutions.test_framework.minimal_json.JsonValue value(double value) {
     if (Double.isInfinite(value) || Double.isNaN(value)) {
       throw new IllegalArgumentException(
           "Infinite and NaN values not permitted in JSON");
@@ -124,8 +124,8 @@ public final class Json {
    *          the string to get a JSON representation for
    * @return a JSON value that represents the given string
    */
-  public static epi.test_framework.minimal_json.JsonValue value(String string) {
-    return string == null ? NULL : new epi.test_framework.minimal_json.JsonString(string);
+  public static epi_solutions.test_framework.minimal_json.JsonValue value(String string) {
+    return string == null ? NULL : new epi_solutions.test_framework.minimal_json.JsonString(string);
   }
 
   /**
@@ -136,7 +136,7 @@ public final class Json {
    *          the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
-  public static epi.test_framework.minimal_json.JsonValue value(boolean value) { return value ? TRUE : FALSE; }
+  public static epi_solutions.test_framework.minimal_json.JsonValue value(boolean value) { return value ? TRUE : FALSE; }
 
   /**
    * Creates a new empty JsonArray. This is equivalent to creating a new
@@ -272,7 +272,7 @@ public final class Json {
    *
    * @return a new empty JSON object
    */
-  public static epi.test_framework.minimal_json.JsonObject object() { return new epi.test_framework.minimal_json.JsonObject(); }
+  public static epi_solutions.test_framework.minimal_json.JsonObject object() { return new epi_solutions.test_framework.minimal_json.JsonObject(); }
 
   /**
    * Parses the given input string as JSON. The input must contain a valid JSON
@@ -282,15 +282,15 @@ public final class Json {
    * @param string
    *          the input string, must be valid JSON
    * @return a value that represents the parsed JSON
-   * @throws epi.test_framework.minimal_json.ParseException
+   * @throws epi_solutions.test_framework.minimal_json.ParseException
    *           if the input is not valid JSON
    */
-  public static epi.test_framework.minimal_json.JsonValue parse(String string) {
+  public static epi_solutions.test_framework.minimal_json.JsonValue parse(String string) {
     if (string == null) {
       throw new NullPointerException("string is null");
     }
     DefaultHandler handler = new DefaultHandler();
-    new epi.test_framework.minimal_json.JsonParser(handler).parse(string);
+    new epi_solutions.test_framework.minimal_json.JsonParser(handler).parse(string);
     return handler.getValue();
   }
 
@@ -312,7 +312,7 @@ public final class Json {
    * @throws ParseException
    *           if the input is not valid JSON
    */
-  public static epi.test_framework.minimal_json.JsonValue parse(Reader reader) throws IOException {
+  public static epi_solutions.test_framework.minimal_json.JsonValue parse(Reader reader) throws IOException {
     if (reader == null) {
       throw new NullPointerException("reader is null");
     }
@@ -328,8 +328,8 @@ public final class Json {
     return string;
   }
 
-  static class DefaultHandler extends epi.test_framework.minimal_json.JsonHandler<JsonArray, epi.test_framework.minimal_json.JsonObject> {
-    protected epi.test_framework.minimal_json.JsonValue value;
+  static class DefaultHandler extends epi_solutions.test_framework.minimal_json.JsonHandler<JsonArray, epi_solutions.test_framework.minimal_json.JsonObject> {
+    protected epi_solutions.test_framework.minimal_json.JsonValue value;
 
     @Override
     public JsonArray startArray() {
@@ -337,8 +337,8 @@ public final class Json {
     }
 
     @Override
-    public epi.test_framework.minimal_json.JsonObject startObject() {
-      return new epi.test_framework.minimal_json.JsonObject();
+    public epi_solutions.test_framework.minimal_json.JsonObject startObject() {
+      return new epi_solutions.test_framework.minimal_json.JsonObject();
     }
 
     @Override
@@ -353,7 +353,7 @@ public final class Json {
 
     @Override
     public void endString(String string) {
-      value = new epi.test_framework.minimal_json.JsonString(string);
+      value = new epi_solutions.test_framework.minimal_json.JsonString(string);
     }
 
     @Override
@@ -367,7 +367,7 @@ public final class Json {
     }
 
     @Override
-    public void endObject(epi.test_framework.minimal_json.JsonObject object) {
+    public void endObject(epi_solutions.test_framework.minimal_json.JsonObject object) {
       value = object;
     }
 

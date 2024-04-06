@@ -1,11 +1,11 @@
 
 package epi_solutions.test_framework.serialization_traits;
 
-import epi.TreeLike;
-import epi.test_framework.BinaryTreeUtils;
-import epi.test_framework.minimal_json.JsonArray;
-import epi.test_framework.minimal_json.JsonValue;
-import epi.test_framework.serialization_traits.SerializationTrait;
+import epi_solutions.TreeLike;
+import epi_solutions.test_framework.BinaryTreeUtils;
+import epi_solutions.test_framework.minimal_json.JsonArray;
+import epi_solutions.test_framework.minimal_json.JsonValue;
+import epi_solutions.test_framework.serialization_traits.SerializationTrait;
 import epi_solutions.BinaryTree;
 import epi_solutions.BinaryTreeNode;
 import epi_solutions.BstNode;
@@ -15,9 +15,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BinaryTreeTrait extends epi.test_framework.serialization_traits.SerializationTrait {
+public class BinaryTreeTrait extends epi_solutions.test_framework.serialization_traits.SerializationTrait {
   private Class<?> nodeType;
-  private epi.test_framework.serialization_traits.SerializationTrait innerTypeTrait;
+  private epi_solutions.test_framework.serialization_traits.SerializationTrait innerTypeTrait;
 
   public BinaryTreeTrait(Class<?> nodeType, SerializationTrait innerTypeTrait) {
     this.nodeType = nodeType;

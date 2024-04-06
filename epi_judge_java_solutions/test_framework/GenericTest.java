@@ -1,11 +1,7 @@
 
-package epi.test_framework;
+package test_framework;
 
-import epi.test_framework.minimal_json.Json;
-import epi.test_framework.minimal_json.JsonObject;
-import epi.test_framework.minimal_json.JsonValue;
-import epi.test_framework.minimal_json.Member;
-import epi.test_framework.minimal_json.WriterConfig;
+import test_framework.minimal_json.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;

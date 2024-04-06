@@ -1,5 +1,5 @@
 
-package epi.test_framework.minimal_json;
+package test_framework.minimal_json;
 
 /**
  * An immutable object that represents a location in the parsed text.

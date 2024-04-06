@@ -1,11 +1,11 @@
 
-package epi.test_framework.serialization_traits;
+package test_framework.serialization_traits;
 
 import epi.BinaryTree;
 import epi.BinaryTreeNode;
 import epi.BstNode;
 import epi.ListNode;
-import epi.test_framework.EpiUserType;
+import test_framework.EpiUserType;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

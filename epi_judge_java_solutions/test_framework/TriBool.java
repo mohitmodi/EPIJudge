@@ -1,5 +1,5 @@
 
-package epi.test_framework;
+package test_framework;
 
 public enum TriBool {
   FALSE,

@@ -1,10 +1,10 @@
 
 package epi_solutions.test_framework;
 
-import epi.test_framework.ConsoleColor;
-import epi.test_framework.Platform;
-import epi.test_framework.TestResult;
-import epi.test_framework.TestTimer;
+import epi_solutions.test_framework.ConsoleColor;
+import epi_solutions.test_framework.Platform;
+import epi_solutions.test_framework.TestResult;
+import epi_solutions.test_framework.TestTimer;
 
 import java.util.List;
 
@@ -16,30 +16,30 @@ public class TestUtilsConsole {
   }
 
   public static void clearLineIfTty() {
-    if (epi.test_framework.Platform.useTtyOutput()) {
-      epi.test_framework.Platform.stdOutClearLine();
+    if (epi_solutions.test_framework.Platform.useTtyOutput()) {
+      epi_solutions.test_framework.Platform.stdOutClearLine();
     } else {
       System.out.print('\n');
     }
   }
 
-  public static void printTestResult(epi.test_framework.TestResult testResult) {
+  public static void printTestResult(epi_solutions.test_framework.TestResult testResult) {
     switch (testResult) {
     case PASSED:
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_GREEN, "PASSED");
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_GREEN, "PASSED");
       break;
     case FAILED:
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_RED, "FAILED");
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_RED, "FAILED");
       break;
     case TIMEOUT:
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_BLUE, "TIMEOUT");
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_BLUE, "TIMEOUT");
       break;
     case UNKNOWN_EXCEPTION:
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_RED,
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_RED,
                                       "UNHANDLED EXCEPTION");
       break;
     case STACK_OVERFLOW:
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_RED,
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_RED,
                                       "STACK OVERFLOW");
       break;
     default:
@@ -47,9 +47,9 @@ public class TestUtilsConsole {
     }
   }
 
-  public static void printTestInfo(epi.test_framework.TestResult testResult, int testNr,
+  public static void printTestInfo(epi_solutions.test_framework.TestResult testResult, int testNr,
                                    int totalTests, String diagnostic,
-                                   epi.test_framework.TestTimer timer) {
+                                   epi_solutions.test_framework.TestTimer timer) {
     if (!caretAtLineStart) {
       clearLineIfTty();
     }
@@ -62,7 +62,7 @@ public class TestUtilsConsole {
 
     if (timer != null) {
       System.out.printf(" [%s]",
-                        epi.test_framework.TestTimer.durationToString(timer.getMicroseconds()));
+                        epi_solutions.test_framework.TestTimer.durationToString(timer.getMicroseconds()));
     }
     caretAtLineStart = false;
 
@@ -87,12 +87,12 @@ public class TestUtilsConsole {
       }
     }
 
-    epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_YELLOW,
+    epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_YELLOW,
                                     "Arguments\n");
 
     for (int i = 0; i < arguments.size(); i++) {
       System.out.print("\t");
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_YELLOW,
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_YELLOW,
                                       paramNames.get(i));
       System.out.printf(": %s%s\n",
                         genSpaces(maxColSize - paramNames.get(i).length()),
@@ -101,11 +101,11 @@ public class TestUtilsConsole {
 
     List<TestFailure.Property> properties = testFailure.getProperties();
     if (!properties.isEmpty()) {
-      epi.test_framework.ConsoleColor.printStdOutColored(epi.test_framework.ConsoleColor.Color.FG_YELLOW,
+      epi_solutions.test_framework.ConsoleColor.printStdOutColored(epi_solutions.test_framework.ConsoleColor.Color.FG_YELLOW,
                                       "\nFailure info\n");
       for (TestFailure.Property prop : properties) {
         System.out.print("\t");
-        epi.test_framework.ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
+        epi_solutions.test_framework.ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
                                         prop.name());
         System.out.printf(": %s%s\n",
                           genSpaces(maxColSize - prop.name().length()),
@@ -128,9 +128,9 @@ public class TestUtilsConsole {
         System.out.printf("Time complexity: %s\n", complexity);
       }
 
-      long[] avgMedian = epi.test_framework.TestTimer.avgAndMedianFromDuration(durations);
+      long[] avgMedian = epi_solutions.test_framework.TestTimer.avgAndMedianFromDuration(durations);
       System.out.printf("Average running time: %s\nMedian running time:  %s\n",
-                        epi.test_framework.TestTimer.durationToString(avgMedian[0]),
+                        epi_solutions.test_framework.TestTimer.durationToString(avgMedian[0]),
                         TestTimer.durationToString(avgMedian[1]));
     }
 

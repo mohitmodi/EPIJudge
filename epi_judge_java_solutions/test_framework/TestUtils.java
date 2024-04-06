@@ -1,5 +1,5 @@
 
-package epi.test_framework;
+package test_framework;
 
 import java.io.IOException;
 import java.nio.file.Files;

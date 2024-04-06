@@ -1,5 +1,5 @@
 
-package epi.test_framework.minimal_json;
+package test_framework.minimal_json;
 
 /**
  * Represents a member of a JSON object, a pair of a name and a value.

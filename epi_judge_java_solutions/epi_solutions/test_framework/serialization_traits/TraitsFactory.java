@@ -1,7 +1,7 @@
 
 package epi_solutions.test_framework.serialization_traits;
 
-import epi.test_framework.EpiUserType;
+import epi_solutions.test_framework.EpiUserType;
 import epi_solutions.BinaryTree;
 import epi_solutions.BinaryTreeNode;
 import epi_solutions.BstNode;

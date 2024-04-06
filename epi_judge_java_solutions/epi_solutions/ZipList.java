@@ -1,32 +1,32 @@
 package epi_solutions;
 
-import epi.ListNode;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+import epi_solutions.ListNode;
+import epi_solutions.test_framework.EpiTest;
+import epi_solutions.test_framework.GenericTest;
 
 public class ZipList {
   @EpiTest(testDataFile = "zip_list.tsv")
 
-  public static epi.ListNode<Integer> zippingLinkedList(epi.ListNode<Integer> L) {
+  public static epi_solutions.ListNode<Integer> zippingLinkedList(epi_solutions.ListNode<Integer> L) {
 
     if (L == null || L.next == null) {
       return L;
     }
 
     // Find the second half of L.
-    epi.ListNode<Integer> slow = L, fast = L;
+    epi_solutions.ListNode<Integer> slow = L, fast = L;
     while (fast != null && fast.next != null) {
       fast = fast.next.next;
       slow = slow.next;
     }
 
-    epi.ListNode<Integer> firstHalfHead = L, secondHalfHead = slow.next;
+    epi_solutions.ListNode<Integer> firstHalfHead = L, secondHalfHead = slow.next;
     slow.next = null; // Splits the list into two lists.
     secondHalfHead = ReverseList.reverseList(secondHalfHead);
 
     // Interleave the first half and the reversed of the second half.
-    epi.ListNode<Integer> firstHalfIter = firstHalfHead;
-    epi.ListNode<Integer> secondHalfIter = secondHalfHead;
+    epi_solutions.ListNode<Integer> firstHalfIter = firstHalfHead;
+    epi_solutions.ListNode<Integer> secondHalfIter = secondHalfHead;
     while (secondHalfIter != null) {
       ListNode<Integer> temp = secondHalfIter.next;
       secondHalfIter.next = firstHalfIter.next;

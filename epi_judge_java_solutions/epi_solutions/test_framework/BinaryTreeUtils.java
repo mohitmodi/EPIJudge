@@ -1,7 +1,7 @@
 
 package epi_solutions.test_framework;
 
-import epi.TreeLike;
+import epi_solutions.TreeLike;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,16 +1,16 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.JsonValue;
+import epi_solutions.test_framework.minimal_json.JsonValue;
 
 /**
  * Represents a member of a JSON object, a pair of a name and a value.
  */
 public class Member {
   private final String name;
-  private final epi.test_framework.minimal_json.JsonValue value;
+  private final epi_solutions.test_framework.minimal_json.JsonValue value;
 
-  Member(String name, epi.test_framework.minimal_json.JsonValue value) {
+  Member(String name, epi_solutions.test_framework.minimal_json.JsonValue value) {
     this.name = name;
     this.value = value;
   }

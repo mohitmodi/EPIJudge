@@ -1,8 +1,8 @@
 
-package epi.test_framework.serialization_traits;
+package test_framework.serialization_traits;
 
 import epi.ListNode;
-import epi.test_framework.minimal_json.JsonValue;
+import test_framework.minimal_json.JsonValue;
 
 import java.util.Collections;
 import java.util.List;

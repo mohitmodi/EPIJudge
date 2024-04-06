@@ -1,13 +1,13 @@
 
-package epi.test_framework.serialization_traits;
+package test_framework.serialization_traits;
 
 import epi.BinaryTree;
 import epi.BinaryTreeNode;
 import epi.BstNode;
 import epi.TreeLike;
-import epi.test_framework.BinaryTreeUtils;
-import epi.test_framework.minimal_json.JsonArray;
-import epi.test_framework.minimal_json.JsonValue;
+import test_framework.BinaryTreeUtils;
+import test_framework.minimal_json.JsonArray;
+import test_framework.minimal_json.JsonValue;
 
 import java.util.Arrays;
 import java.util.Deque;

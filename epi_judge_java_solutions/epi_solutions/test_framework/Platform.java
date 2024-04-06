@@ -1,18 +1,18 @@
 
 package epi_solutions.test_framework;
 
-import epi.test_framework.TriBool;
+import epi_solutions.test_framework.TriBool;
 
 public class Platform {
   private static Boolean isWindows;
   private static Boolean is64Bit;
-  private static epi.test_framework.TriBool dllLoaded = epi.test_framework.TriBool.INDETERMINATE;
+  private static epi_solutions.test_framework.TriBool dllLoaded = epi_solutions.test_framework.TriBool.INDETERMINATE;
   private static boolean enableTtyOutput = false;
   private static boolean enableColorOutput = false;
 
   public static void stdOutClearLine() { System.out.print("\r"); }
 
-  public static void setOutputOpts(epi.test_framework.TriBool ttyMode, epi.test_framework.TriBool colorMode) {
+  public static void setOutputOpts(epi_solutions.test_framework.TriBool ttyMode, epi_solutions.test_framework.TriBool colorMode) {
     enableTtyOutput = ttyMode.getOrDefault(System.console() != null);
     enableColorOutput = colorMode.getOrDefault(enableTtyOutput);
     initColorOutput();
@@ -50,15 +50,15 @@ public class Platform {
 
   private static void initColorOutput() {
     if (runningOnWin() && useColorOutput() &&
-        dllLoaded == epi.test_framework.TriBool.INDETERMINATE) {
+        dllLoaded == epi_solutions.test_framework.TriBool.INDETERMINATE) {
       String dllName =
           runningOn64BitVM() ? "console_color_64" : "console_color_32";
 
       try {
         System.loadLibrary(dllName);
-        dllLoaded = epi.test_framework.TriBool.TRUE;
+        dllLoaded = epi_solutions.test_framework.TriBool.TRUE;
       } catch (UnsatisfiedLinkError ex) {
-        dllLoaded = epi.test_framework.TriBool.FALSE;
+        dllLoaded = epi_solutions.test_framework.TriBool.FALSE;
         System.out.printf(
             "Warning: %s.dll was not found. Colored output is disabled.\n"
                 +

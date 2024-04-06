@@ -1,10 +1,10 @@
 package epi_solutions;
 
-import epi.test_framework.BinaryTreeUtils;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
-import epi.test_framework.TimedExecutor;
+import epi_solutions.test_framework.BinaryTreeUtils;
+import epi_solutions.test_framework.EpiTest;
+import epi_solutions.test_framework.GenericTest;
+import epi_solutions.test_framework.TestFailure;
+import epi_solutions.test_framework.TimedExecutor;
 
 public class LowestCommonAncestorInBst {
 

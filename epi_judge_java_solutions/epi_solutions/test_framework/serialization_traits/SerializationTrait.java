@@ -1,8 +1,8 @@
 
 package epi_solutions.test_framework.serialization_traits;
 
-import epi.test_framework.TestFailure;
-import epi.test_framework.minimal_json.JsonValue;
+import epi_solutions.test_framework.TestFailure;
+import epi_solutions.test_framework.minimal_json.JsonValue;
 
 import java.util.List;
 import java.util.Objects;

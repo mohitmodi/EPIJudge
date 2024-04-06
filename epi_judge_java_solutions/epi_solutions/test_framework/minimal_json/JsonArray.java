@@ -1,10 +1,10 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.Json;
-import epi.test_framework.minimal_json.JsonValue;
-import epi.test_framework.minimal_json.JsonWriter;
-import epi.test_framework.minimal_json.ParseException;
+import epi_solutions.test_framework.minimal_json.Json;
+import epi_solutions.test_framework.minimal_json.JsonValue;
+import epi_solutions.test_framework.minimal_json.JsonWriter;
+import epi_solutions.test_framework.minimal_json.ParseException;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -18,7 +18,7 @@ import java.util.List;
  * <p>
  * Elements can be added using the <code>add(...)</code> methods which accept
  * instances of
- * {@link epi.test_framework.minimal_json.JsonValue}, strings, primitive numbers, and boolean values. To replace
+ * {@link epi_solutions.test_framework.minimal_json.JsonValue}, strings, primitive numbers, and boolean values. To replace
  * an element of an
  * array, use the <code>set(int, ...)</code> methods.
  * </p>
@@ -51,13 +51,13 @@ import java.util.List;
  * </p>
  */
 @SuppressWarnings("serial") // use default serial UID
-public class JsonArray extends epi.test_framework.minimal_json.JsonValue implements Iterable<epi.test_framework.minimal_json.JsonValue> {
-  private final List<epi.test_framework.minimal_json.JsonValue> values;
+public class JsonArray extends epi_solutions.test_framework.minimal_json.JsonValue implements Iterable<epi_solutions.test_framework.minimal_json.JsonValue> {
+  private final List<epi_solutions.test_framework.minimal_json.JsonValue> values;
 
   /**
    * Creates a new empty JsonArray.
    */
-  public JsonArray() { values = new ArrayList<epi.test_framework.minimal_json.JsonValue>(); }
+  public JsonArray() { values = new ArrayList<epi_solutions.test_framework.minimal_json.JsonValue>(); }
 
   /**
    * Creates a new JsonArray with the contents of the specified JSON array.
@@ -75,7 +75,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
     if (unmodifiable) {
       values = Collections.unmodifiableList(array.values);
     } else {
-      values = new ArrayList<epi.test_framework.minimal_json.JsonValue>(array.values);
+      values = new ArrayList<epi_solutions.test_framework.minimal_json.JsonValue>(array.values);
     }
   }
 
@@ -94,16 +94,16 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the JSON array that has been read
    * @throws IOException
    *           if an I/O error occurs in the reader
-   * @throws epi.test_framework.minimal_json.ParseException
+   * @throws epi_solutions.test_framework.minimal_json.ParseException
    *           if the input is not valid JSON
    * @throws UnsupportedOperationException
    *           if the input does not contain a JSON array
-   * @deprecated Use {@link epi.test_framework.minimal_json.Json#parse(Reader)}{@link epi.test_framework.minimal_json.JsonValue#asArray()
+   * @deprecated Use {@link epi_solutions.test_framework.minimal_json.Json#parse(Reader)}{@link epi_solutions.test_framework.minimal_json.JsonValue#asArray()
    * .asArray()} instead
    */
   @Deprecated
   public static JsonArray readFrom(Reader reader) throws IOException {
-    return epi.test_framework.minimal_json.JsonValue.readFrom(reader).asArray();
+    return epi_solutions.test_framework.minimal_json.JsonValue.readFrom(reader).asArray();
   }
 
   /**
@@ -116,12 +116,12 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           if the input is not valid JSON
    * @throws UnsupportedOperationException
    *           if the input does not contain a JSON array
-   * @deprecated Use {@link epi.test_framework.minimal_json.Json#parse(String)}{@link epi.test_framework.minimal_json.JsonValue#asArray()
+   * @deprecated Use {@link epi_solutions.test_framework.minimal_json.Json#parse(String)}{@link epi_solutions.test_framework.minimal_json.JsonValue#asArray()
    * .asArray()} instead
    */
   @Deprecated
   public static JsonArray readFrom(String string) {
-    return epi.test_framework.minimal_json.JsonValue.readFrom(string).asArray();
+    return epi_solutions.test_framework.minimal_json.JsonValue.readFrom(string).asArray();
   }
 
   /**
@@ -154,7 +154,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the array itself, to enable method chaining
    */
   public JsonArray add(int value) {
-    values.add(epi.test_framework.minimal_json.Json.value(value));
+    values.add(epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -168,7 +168,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the array itself, to enable method chaining
    */
   public JsonArray add(long value) {
-    values.add(epi.test_framework.minimal_json.Json.value(value));
+    values.add(epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -182,7 +182,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the array itself, to enable method chaining
    */
   public JsonArray add(float value) {
-    values.add(epi.test_framework.minimal_json.Json.value(value));
+    values.add(epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -196,7 +196,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the array itself, to enable method chaining
    */
   public JsonArray add(double value) {
-    values.add(epi.test_framework.minimal_json.Json.value(value));
+    values.add(epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -210,7 +210,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the array itself, to enable method chaining
    */
   public JsonArray add(boolean value) {
-    values.add(epi.test_framework.minimal_json.Json.value(value));
+    values.add(epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -223,7 +223,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    * @return the array itself, to enable method chaining
    */
   public JsonArray add(String value) {
-    values.add(epi.test_framework.minimal_json.Json.value(value));
+    values.add(epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -234,7 +234,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *          the JsonValue to add to the array, must not be <code>null</code>
    * @return the array itself, to enable method chaining
    */
-  public JsonArray add(epi.test_framework.minimal_json.JsonValue value) {
+  public JsonArray add(epi_solutions.test_framework.minimal_json.JsonValue value) {
     if (value == null) {
       throw new NullPointerException("value is null");
     }
@@ -257,7 +257,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           <code>index &gt;= size</code>
    */
   public JsonArray set(int index, int value) {
-    values.set(index, epi.test_framework.minimal_json.Json.value(value));
+    values.set(index, epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -276,7 +276,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           <code>index &gt;= size</code>
    */
   public JsonArray set(int index, long value) {
-    values.set(index, epi.test_framework.minimal_json.Json.value(value));
+    values.set(index, epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -295,7 +295,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           <code>index &gt;= size</code>
    */
   public JsonArray set(int index, float value) {
-    values.set(index, epi.test_framework.minimal_json.Json.value(value));
+    values.set(index, epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -314,7 +314,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           <code>index &gt;= size</code>
    */
   public JsonArray set(int index, double value) {
-    values.set(index, epi.test_framework.minimal_json.Json.value(value));
+    values.set(index, epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -333,7 +333,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           <code>index &gt;= size</code>
    */
   public JsonArray set(int index, boolean value) {
-    values.set(index, epi.test_framework.minimal_json.Json.value(value));
+    values.set(index, epi_solutions.test_framework.minimal_json.Json.value(value));
     return this;
   }
 
@@ -370,7 +370,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           if the index is out of range, i.e. <code>index &lt; 0</code> or
    *           <code>index &gt;= size</code>
    */
-  public JsonArray set(int index, epi.test_framework.minimal_json.JsonValue value) {
+  public JsonArray set(int index, epi_solutions.test_framework.minimal_json.JsonValue value) {
     if (value == null) {
       throw new NullPointerException("value is null");
     }
@@ -417,7 +417,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *           if the index is out of range, i.e. <code>index &lt; 0</code> or
    *           <code>index &gt;= size</code>
    */
-  public epi.test_framework.minimal_json.JsonValue get(int index) { return values.get(index); }
+  public epi_solutions.test_framework.minimal_json.JsonValue get(int index) { return values.get(index); }
 
   /**
    * Returns a list of the values in this array in document order. The returned
@@ -428,7 +428,7 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *
    * @return a list of the values in this array
    */
-  public List<epi.test_framework.minimal_json.JsonValue> values() {
+  public List<epi_solutions.test_framework.minimal_json.JsonValue> values() {
     return Collections.unmodifiableList(values);
   }
 
@@ -439,12 +439,12 @@ public class JsonArray extends epi.test_framework.minimal_json.JsonValue impleme
    *
    * @return an iterator over the values of this array
    */
-  public Iterator<epi.test_framework.minimal_json.JsonValue> iterator() {
-    final Iterator<epi.test_framework.minimal_json.JsonValue> iterator = values.iterator();
-    return new Iterator<epi.test_framework.minimal_json.JsonValue>() {
+  public Iterator<epi_solutions.test_framework.minimal_json.JsonValue> iterator() {
+    final Iterator<epi_solutions.test_framework.minimal_json.JsonValue> iterator = values.iterator();
+    return new Iterator<epi_solutions.test_framework.minimal_json.JsonValue>() {
       public boolean hasNext() { return iterator.hasNext(); }
 
-      public epi.test_framework.minimal_json.JsonValue next() { return iterator.next(); }
+      public epi_solutions.test_framework.minimal_json.JsonValue next() { return iterator.next(); }
 
       public void remove() { throw new UnsupportedOperationException(); }
     };

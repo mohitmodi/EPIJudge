@@ -1,7 +1,7 @@
 
 package epi_solutions;
 
-import epi.TreeLike;
+import epi_solutions.TreeLike;
 
 public class BinaryTreeNode<T> extends TreeLike<T, BinaryTreeNode<T>> {
   public T data;

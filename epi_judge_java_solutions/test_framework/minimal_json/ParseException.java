@@ -1,5 +1,5 @@
 
-package epi.test_framework.minimal_json;
+package test_framework.minimal_json;
 
 /**
  * An unchecked exception to indicate that an input does not qualify as valid

@@ -1,11 +1,11 @@
 
 package epi_solutions.test_framework;
 
-import epi.TreeLike;
-import epi.test_framework.BinaryTreeUtils;
-import epi.test_framework.TestOutput;
-import epi.test_framework.TestUtils;
-import epi.test_framework.TimedExecutor;
+import epi_solutions.TreeLike;
+import epi_solutions.test_framework.BinaryTreeUtils;
+import epi_solutions.test_framework.TestOutput;
+import epi_solutions.test_framework.TestUtils;
+import epi_solutions.test_framework.TimedExecutor;
 import epi_solutions.test_framework.minimal_json.Json;
 import epi_solutions.test_framework.serialization_traits.SerializationTrait;
 import epi_solutions.test_framework.serialization_traits.TraitsFactory;
@@ -72,7 +72,7 @@ public class GenericTestHandler {
     paramTypes = List.of(func.getGenericParameterTypes());
 
     if (paramTypes.size() >= 1 &&
-        paramTypes.get(0).equals(epi.test_framework.TimedExecutor.class)) {
+        paramTypes.get(0).equals(epi_solutions.test_framework.TimedExecutor.class)) {
       hasExecutorHook = true;
       paramTypes = paramTypes.subList(1, paramTypes.size());
     }
@@ -124,7 +124,7 @@ public class GenericTestHandler {
 
   private void matchTypeNames(String expected, String fromTestData,
                               String sourceName) {
-    if (!expected.equals(epi.test_framework.TestUtils.filterBracketComments(fromTestData))) {
+    if (!expected.equals(epi_solutions.test_framework.TestUtils.filterBracketComments(fromTestData))) {
       throw new RuntimeException(
           String.format("%s type mismatch: expected %s, got %s", sourceName,
                         expected, fromTestData));
@@ -143,7 +143,7 @@ public class GenericTestHandler {
    * expected, result]. Two last entries are omitted in case of the void return
    * type
    */
-  public epi.test_framework.TestOutput runTest(
+  public epi_solutions.test_framework.TestOutput runTest(
       long timeoutSeconds,
       BiFunction<List<Integer>, List<Object>, List<Integer>> metricsOverride,
       List<String> testArgs) throws Exception, Error {
@@ -163,7 +163,7 @@ public class GenericTestHandler {
       metrics = metricsOverride.apply(metrics, parsed);
 
       Object result;
-      epi.test_framework.TimedExecutor executor = new TimedExecutor(timeoutSeconds);
+      epi_solutions.test_framework.TimedExecutor executor = new TimedExecutor(timeoutSeconds);
 
       if (hasExecutorHook) {
         parsed.add(0, executor);
@@ -204,7 +204,7 @@ public class GenericTestHandler {
       comparisonResult = result == null;
     } else if (expected instanceof Float && result instanceof Float) {
       comparisonResult =
-          epi.test_framework.TestUtils.floatComparison((Float)expected, (Float)result);
+          epi_solutions.test_framework.TestUtils.floatComparison((Float)expected, (Float)result);
     } else if (expected instanceof Double && result instanceof Double) {
       comparisonResult =
           TestUtils.doubleComparison((Double)expected, (Double)result);

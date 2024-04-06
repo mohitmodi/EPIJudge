@@ -1,8 +1,8 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.JsonWriter;
-import epi.test_framework.minimal_json.PrettyPrint;
+import epi_solutions.test_framework.minimal_json.JsonWriter;
+import epi_solutions.test_framework.minimal_json.PrettyPrint;
 
 import java.io.Writer;
 
@@ -17,8 +17,8 @@ public abstract class WriterConfig {
    */
   public static WriterConfig MINIMAL = new WriterConfig() {
     @Override
-    epi.test_framework.minimal_json.JsonWriter createWriter(Writer writer) {
-      return new epi.test_framework.minimal_json.JsonWriter(writer);
+    epi_solutions.test_framework.minimal_json.JsonWriter createWriter(Writer writer) {
+      return new epi_solutions.test_framework.minimal_json.JsonWriter(writer);
     }
   };
 
@@ -27,7 +27,7 @@ public abstract class WriterConfig {
    * indentation of two
    * spaces.
    */
-  public static WriterConfig PRETTY_PRINT = epi.test_framework.minimal_json.PrettyPrint.indentWithSpaces(4);
+  public static WriterConfig PRETTY_PRINT = epi_solutions.test_framework.minimal_json.PrettyPrint.indentWithSpaces(4);
 
   abstract JsonWriter createWriter(Writer writer);
 }

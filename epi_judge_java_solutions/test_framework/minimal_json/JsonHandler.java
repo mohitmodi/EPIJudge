@@ -1,5 +1,5 @@
 
-package epi.test_framework.minimal_json;
+package test_framework.minimal_json;
 
 /**
  * A handler for parser events. Instances of this class can be given to a {@link

@@ -1,9 +1,9 @@
 
 package epi_solutions.test_framework.minimal_json;
 
-import epi.test_framework.minimal_json.JsonObject;
-import epi.test_framework.minimal_json.JsonWriter;
-import epi.test_framework.minimal_json.WriterConfig;
+import epi_solutions.test_framework.minimal_json.JsonObject;
+import epi_solutions.test_framework.minimal_json.JsonWriter;
+import epi_solutions.test_framework.minimal_json.WriterConfig;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -25,7 +25,7 @@ import java.io.Writer;
  * <p>
  * JSON <strong>objects</strong> and <strong>arrays</strong> are represented by
  * the subtypes
- * {@link epi.test_framework.minimal_json.JsonObject} and {@link JsonArray}. Instances of these types can be
+ * {@link epi_solutions.test_framework.minimal_json.JsonObject} and {@link JsonArray}. Instances of these types can be
  * created using the
  * public constructors of these classes.
  * </p>
@@ -202,7 +202,7 @@ public abstract class JsonValue implements Serializable {
   /**
    * Detects whether this value represents a JSON object. If this is the case,
    * this value is an
-   * instance of {@link epi.test_framework.minimal_json.JsonObject}.
+   * instance of {@link epi_solutions.test_framework.minimal_json.JsonObject}.
    *
    * @return <code>true</code> if this value is an instance of JsonObject
    */
@@ -265,7 +265,7 @@ public abstract class JsonValue implements Serializable {
   public boolean isNull() { return false; }
 
   /**
-   * Returns this JSON value as {@link epi.test_framework.minimal_json.JsonObject}, assuming that this value
+   * Returns this JSON value as {@link epi_solutions.test_framework.minimal_json.JsonObject}, assuming that this value
    * represents a JSON
    * object. If this is not the case, an exception is thrown.
    *
@@ -416,7 +416,7 @@ public abstract class JsonValue implements Serializable {
    *           if an I/O error occurs in the writer
    */
   public void writeTo(Writer writer) throws IOException {
-    writeTo(writer, epi.test_framework.minimal_json.WriterConfig.MINIMAL);
+    writeTo(writer, epi_solutions.test_framework.minimal_json.WriterConfig.MINIMAL);
   }
 
   /**
@@ -435,7 +435,7 @@ public abstract class JsonValue implements Serializable {
    * @throws IOException
    *           if an I/O error occurs in the writer
    */
-  public void writeTo(Writer writer, epi.test_framework.minimal_json.WriterConfig config) throws IOException {
+  public void writeTo(Writer writer, epi_solutions.test_framework.minimal_json.WriterConfig config) throws IOException {
     if (writer == null) {
       throw new NullPointerException("writer is null");
     }
@@ -458,7 +458,7 @@ public abstract class JsonValue implements Serializable {
    */
   @Override
   public String toString() {
-    return toString(epi.test_framework.minimal_json.WriterConfig.MINIMAL);
+    return toString(epi_solutions.test_framework.minimal_json.WriterConfig.MINIMAL);
   }
 
   /**

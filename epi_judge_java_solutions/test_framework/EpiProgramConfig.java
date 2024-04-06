@@ -1,5 +1,5 @@
 
-package epi.test_framework;
+package test_framework;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
