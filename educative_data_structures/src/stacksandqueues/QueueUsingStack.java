@@ -39,7 +39,7 @@ public class QueueUsingStack <V> {
 
     public static void main(String args[]) {
 
-        QueueWithStack<Integer> queue = new QueueWithStack<Integer>(5);
+        QueueUsingStack<Integer> queue = new QueueUsingStack<Integer>(5);
 
         queue.enqueue(1);
         queue.enqueue(2);
