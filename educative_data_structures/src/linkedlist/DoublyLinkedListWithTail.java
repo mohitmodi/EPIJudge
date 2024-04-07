@@ -113,4 +113,20 @@ public class DoublyLinkedListWithTail <T> {
 
         System.out.println(temp.data.toString() + " -> null");
     }
+
+    public static < T > boolean isPalindrome(DoublyLinkedListWithTail < T > list) {
+        DoublyLinkedListWithTail < T > .Node start = list.getHeadNode(); // get the head pointer
+        DoublyLinkedListWithTail < T > .Node end = list.getTailNode(); // get the tail
+        if (start == null) { // if list is empty, it is a palindrome
+            return true;
+        }
+        while (start != null) { //otherwise traverse list from both sides
+            if (start.data != end.data) { // if data mismatches at any point list is not a palindrome
+                return false;
+            }
+            start = start.nextNode;
+            end = end.prevNode;
+        }
+        return true; // if data didn't mismatch at any point, list is a palindrome.
+    }
 }
