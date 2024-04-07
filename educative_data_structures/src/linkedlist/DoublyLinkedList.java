@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class DoublyLinkedList<T> {
+public class DoublyLinkedList <T> {
 
     //Node inner class for DLL
     public class Node {
@@ -9,34 +9,94 @@ public class DoublyLinkedList<T> {
         public Node prevNode;
     }
 
+    //member variables
     public Node headNode;
+    public Node tailNode;
     public int size;
 
+    //constructor
     public DoublyLinkedList() {
         this.headNode = null;
+        this.tailNode = null; //null initially
+        this.size = 0;
     }
 
-    //checks if the list is empty
+    //returns true if list is empty
     public boolean isEmpty() {
-        if (headNode == null)
-            return true; //is empty
-        return false;    //is not empty
+        if (headNode == null && tailNode == null) //checking tailNode to make sure
+            return true;
+        return false;
     }
 
+    //getter for headNode
+    public Node getHeadNode() {
+        return headNode;
+    }
+
+    //getter for tailNode
+    public Node getTailNode() {
+        return tailNode;
+    }
+
+    //getter for size
+    public int getSize() {
+        return size;
+    }
+
+    //insert at start of the list
     public void insertAtHead(T data) {
-        //create node and put in the data
         Node newNode = new Node();
         newNode.data = data;
-        // Make next of new node as head and previous as NULL
-        newNode.nextNode = this.headNode;
-        newNode.prevNode = null;
-        //Change previous of head node to new node
-        if (headNode != null)
+        newNode.nextNode = this.headNode; //Linking newNode to head's nextNode
+        newNode.prevNode = null; //it will be inserted at start so prevNode will be null
+        if (!isEmpty())
             headNode.prevNode = newNode;
+        else
+            tailNode = newNode;
         this.headNode = newNode;
         size++;
     }
 
+    //insert at end of the list
+    public void insertAtEnd(T data) {
+        if (isEmpty()) { //if list is empty then insert at head
+            insertAtHead(data);
+            return;
+        }
+        //make a new node and assign it the value to be inserted
+        Node newNode = new Node();
+        newNode.data = data;
+        newNode.nextNode = null; //it will be inserted at end so nextNode will be null
+        newNode.prevNode = tailNode; //newNode comes after tailNode so its prevNode will be tailNode
+        tailNode.nextNode = newNode; //make newNode the nextNode of tailNode
+        tailNode = newNode; //update tailNode to be the newNode
+        size++;
+    }
+
+    public void deleteAtHead() {
+        if (isEmpty())
+            return;
+
+        headNode = headNode.nextNode;
+        if (headNode == null)
+            tailNode = null;
+        else
+            headNode.prevNode = null;
+        size--;
+    }
+
+    public void deleteAtTail() {
+        if (isEmpty())
+            return;
+        tailNode = tailNode.prevNode;
+        if (tailNode == null)
+            headNode = null;
+        else
+            tailNode.nextNode = null;
+        size--;
+    }
+
+    //print list function
     public void printList() {
         if (isEmpty()) {
             System.out.println("List is Empty!");
@@ -53,43 +113,20 @@ public class DoublyLinkedList<T> {
 
         System.out.println(temp.data.toString() + " -> null");
     }
-    //deletes the first element
-    public void deleteAtHead(){
-        //if list is empty do nothing
-        if(isEmpty())
-            return;
 
-        //if List is not empty then link head to the
-        //nextElement of firstElement.
-        headNode = headNode.nextNode;
-        headNode.prevNode = null;
-        size--;
-    }
-    public void deleteByValue(T data) {
-        //if empty then simply return
-        if (isEmpty())
-            return;
-
-        //Start from head node
-        Node currentNode = this.headNode;
-
-        if (currentNode.data.equals(data)) {
-            //data is at head so delete from head
-            deleteAtHead();
-            return;
+    public static < T > boolean isPalindrome(DoublyLinkedList < T > list) {
+        DoublyLinkedList < T > .Node start = list.getHeadNode(); // get the head pointer
+        DoublyLinkedList < T > .Node end = list.getTailNode(); // get the tail
+        if (start == null) { // if list is empty, it is a palindrome
+            return true;
         }
-        //traverse the list searching for the data to delete
-        while (currentNode != null) {
-            //node to delete is found
-            if (data.equals(currentNode.data)) {
-                currentNode.prevNode.nextNode = currentNode.nextNode;
-                if(currentNode.nextNode != null)
-                    currentNode.nextNode.prevNode = currentNode.prevNode;
-                size--;
+        while (start != null) { //otherwise traverse list from both sides
+            if (start.data != end.data) { // if data mismatches at any point list is not a palindrome
+                return false;
             }
-            currentNode = currentNode.nextNode;
+            start = start.nextNode;
+            end = end.prevNode;
         }
+        return true; // if data didn't mismatch at any point, list is a palindrome.
     }
-
-
 }
