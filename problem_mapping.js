@@ -1416,7 +1416,7 @@ problem_mapping = {
                 "total": 100
             },
             "Java: AbsentValueArray.java": {
-                "passed": 100,
+                "passed": 0,
                 "total": 100
             },
             "Python: absent_value_array.py": {

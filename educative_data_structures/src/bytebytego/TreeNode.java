@@ -1,4 +1,4 @@
-package trees;
+package bytebytego;
 
 public class TreeNode<T> {
     T data;

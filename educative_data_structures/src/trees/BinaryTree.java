@@ -2,10 +2,10 @@ package trees;
 
 import java.util.*;
 
-class BinaryTree<T> {
+public class BinaryTree<T> {
     TreeNode<T> root;
 
-    BinaryTree(List<TreeNode<T>> ListOfNodes) {
+    public BinaryTree(List<TreeNode<T>> ListOfNodes) {
         root = createBinaryTree(ListOfNodes);
     }
 
