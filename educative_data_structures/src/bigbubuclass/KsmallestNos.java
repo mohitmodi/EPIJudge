@@ -2,8 +2,8 @@ package bigbubuclass;
 
 public class KsmallestNos {
     public static void main(String[] args) {
-        int arr[] = new int[]{10, 7, 8, 9, 16, 5, 3, 27};
-        int k = 2;
+        int arr[] = new int[]{10, 7, 8, 9, 16, 5, 27,3};
+        int k = 7;
         smallest(arr, k);
         for (int i = 0; i < k; i++) {
             System.out.println(arr[i]);

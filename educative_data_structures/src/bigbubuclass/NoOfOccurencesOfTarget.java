@@ -2,8 +2,8 @@ package bigbubuclass;
 
 public class NoOfOccurencesOfTarget {
     public static void main(String[] args) {
-        int arr[] = new int[]{1, 1, 2, 2, 2, 2, 3};
-        int target = 4;
+        int arr[] = new int[]{1, 1, 1,1, 2, 2,2,2,2,2};
+        int target = 2;
         System.out.println(noOfOccurence(arr, target));
     }
 
@@ -14,19 +14,20 @@ public class NoOfOccurencesOfTarget {
         int noOfOccurence = 0;
         while (start < end) {
             if (arr[mid] == target) {
-                int i = mid;
+                noOfOccurence++;
+                int i = mid-1;
                 while (i >= 0 && arr[i] == target) {
                     noOfOccurence++;
                     i--;
                 }
-                i = mid;
+                i = mid + 1;
                 while (i < arr.length && arr[i] == target) {
                     noOfOccurence++;
-                    i--;
+                    i++;
                 }
                 return noOfOccurence;
             }
-            if (mid < target) {
+            if (arr[mid] < target) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
